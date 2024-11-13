@@ -1,10 +1,10 @@
 <?php
 namespace App\controllers;
+
 use App\models\entity\Estado;
 
 class EstadoController {
-    
-    function Estados() {
+    public function getAllEstados() {
         return Estado::all(); 
     }
 }

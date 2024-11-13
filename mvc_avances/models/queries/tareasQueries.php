@@ -78,4 +78,21 @@ class TareasQuery
         }
         return "SELECT * FROM tareas $where ORDER BY prioridad DESC, fecha_estimacion ASC";
     }
+    
+    static function updateEstado($tarea)
+    {
+        $id = $tarea->get('id');
+        $idEstado = $tarea->get('idEstado');
+        $updated_at = $tarea->get('updated_at');
+        $sql = "update tareas set idEstado='$idEstado', updated_at='$updated_at' where id=$id";
+        return $sql;
+    }
+    static function updateEmpleado($tarea)
+    {
+        $id = $tarea->get('id');
+        $idEmpleado = $tarea->get('idEmpleado');
+        $updated_at = $tarea->get('updated_at');
+        $sql = "update tareas set idEmpleado='$idEmpleado', updated_at='$updated_at' where id=$id";
+        return $sql;
+    }
 }

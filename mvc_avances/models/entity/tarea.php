@@ -18,6 +18,10 @@ class Tarea
     private $idEstado;
     private $idPrioridad;
     private $observaciones;
+    private $prioridad; 
+    private $estado; 
+    private $empleado; 
+
 
     function set($prop, $value)
     {
@@ -94,6 +98,20 @@ class Tarea
 
     function delete(){
         $sql = TareasQuery::delete($this);
+        $db = new Database();
+        $result = $db->query($sql);
+        $db->close();
+        return $result;
+    }
+    function updateEstado() {
+        $sql = TareasQuery::updateEstado($this);
+        $db = new Database();
+        $result = $db->query($sql);
+        $db->close();
+        return $result;
+    }
+    function updateEmpleado() {
+        $sql = TareasQuery::updateEmpleado($this);
         $db = new Database();
         $result = $db->query($sql);
         $db->close();

@@ -4,7 +4,7 @@ namespace App\models\queries;
 
 class EstadoQueries
 {
-    static function estados(){
+    static function estado(){
         return "select * from estados";
     }
     static function whereIdEstado($Id)

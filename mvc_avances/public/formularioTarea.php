@@ -1,13 +1,30 @@
 <?php
 require '../models/db/database.php';
+
 require '../models/queries/tareasQueries.php';
+require '../models/queries/empleadosQueries.php';
+require '../models/queries/prioridadQueries.php';
+require '../models/queries/estadoQueries.php';
+
 require '../models/entity/tarea.php';
 require '../models/entity/empleado.php';
 require '../models/entity/estado.php';
 require '../models/entity/prioridad.php';
+
 require '../controllers/tareasController.php';
+require '../controllers/estadoController.php';
+require '../controllers/prioridadcontroller.php';
+require '../controllers/empleadosController.php';
+
+require '../views/tareasView.php';
+require '../views/estadosView.php';
+
 
 use App\controllers\TareasController;
+use App\views\TareasViews;
+use App\views\PrioridadesViews;
+use App\views\EmpleadosViews;
+use App\views\EstadosViews;
 
 $titulo = empty($_GET['id']) ? 'Crear tarea' : 'Modificar tarea';
 $tareaController = new TareasController();
@@ -15,7 +32,7 @@ $tareaController = new TareasController();
 // Obtenemos los datos de empleados, estados y prioridades
 $tarea = new \App\models\entity\Tarea();
 $empleados = $tareaController->getAllEmpleados();
-$estados = $tareaController->getAllEstados();
+$estados = $estadoController->getAllEstados();
 $prioridades = [
     (object) ['id' => 'alta', 'nombre' => 'Alta'],
     (object) ['id' => 'media', 'nombre' => 'Media'],

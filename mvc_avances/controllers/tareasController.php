@@ -19,17 +19,7 @@ class TareasController {
     public function getAllEmpleados() {
         return Empleado::all();
     }
-
-    // Obtener todos los estados
-    public function getAllEstados() {
-        return Estado::all();
-    }
-
-    // Obtener todas las prioridades
-    public function getAllPrioridades() {
-        return Prioridad::all();
-    }
-
+ 
     // Crear una nueva tarea
     function saveTarea($datos) {
         $tarea = new Tarea();
